@@ -1,5 +1,4 @@
 import { After, AfterAll, Before, BeforeAll, setDefaultTimeout } from '@cucumber/cucumber';
-import { BrowserWorld } from './world';
 
 setDefaultTimeout(30000)
 

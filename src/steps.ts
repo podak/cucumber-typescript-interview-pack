@@ -1,16 +1,16 @@
 import { Given, Then } from '@cucumber/cucumber'
-import { BrowserWorld } from './world'
+import {getEvents} from './services/event-manager';
+import assert from 'assert';
 
-/**
- * Given "http://example.com"
- */
-Given(/^\"(.*)\"$/i, async function(this: BrowserWorld, url) {
-  await this.page.goto(url)
+
+Given(/I receive the order ...$/i, async function() {
+  // To replace
+  await new Promise(f => setTimeout(f, 1000))
 })
 
-/**
- * Then save screenshot
- */
-Then('save {string} screenshot', async function(this: BrowserWorld, name: string) {
-  await this.page.screenshot({ path: `./data/${name}.png`})
+// TODO 
+
+Then('There should not be any event in EventManager', async function() {
+  const events = await getEvents([]);
+  assert.deepEqual(events, []);
 })
